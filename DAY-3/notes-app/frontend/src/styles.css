@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  color: #1f2937;
+  background: linear-gradient(145deg, #e8f2ff 0%, #eef8f1 100%);
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+}
+
+.notes-container {
+  width: 100%;
+  max-width: 920px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.12);
+}
+
+.app-header {
+  margin-bottom: 1rem;
+}
+
+.app-header h1 {
+  margin: 0;
+}
+
+.app-header p {
+  margin: 0.35rem 0 0;
+  color: #64748b;
+}
+
+.note-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+.note-input,
+.note-textarea {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 0.7rem 0.8rem;
+  font-size: 1rem;
+}
+
+.note-textarea {
+  resize: vertical;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 0.55rem;
+}
+
+.save-button,
+.cancel-button,
+.edit-button,
+.delete-button {
+  border: none;
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.save-button,
+.edit-button {
+  background: #2563eb;
+}
+
+.save-button:hover,
+.edit-button:hover {
+  background: #1d4ed8;
+}
+
+.cancel-button {
+  background: #64748b;
+}
+
+.cancel-button:hover {
+  background: #475569;
+}
+
+.delete-button {
+  background: #dc2626;
+}
+
+.delete-button:hover {
+  background: #b91c1c;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.8rem;
+}
+
+.note-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.75rem;
+  background: #f8fafc;
+}
+
+.note-card h3 {
+  margin: 0 0 0.4rem;
+}
+
+.note-content {
+  margin: 0 0 0.6rem;
+  white-space: pre-wrap;
+  color: #334155;
+}
+
+.note-time {
+  margin: 0 0 0.6rem;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.error-message {
+  color: #b91c1c;
+  background: #fee2e2;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  margin: 0 0 1rem;
+}
+
+.status-message {
+  color: #64748b;
+}
+
+@media (max-width: 640px) {
+  .notes-container {
+    padding: 0.85rem;
+  }
+
+  .editor-actions {
+    flex-direction: column;
+  }
+}

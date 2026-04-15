@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  color: #1f2937;
+  background: linear-gradient(140deg, #e8f1fd 0%, #eef8f2 100%);
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.nav-header h1 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.nav-header nav {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-header a,
+.link-like {
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  color: #0f766e;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.page-shell {
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+}
+
+.page-content,
+.editor-card,
+.auth-card {
+  width: 100%;
+  max-width: 900px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 10px 25px rgba(16, 24, 40, 0.1);
+}
+
+.editor-card,
+.auth-card {
+  max-width: 640px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.9rem;
+}
+
+.post-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.8rem;
+  background: #f8fafc;
+}
+
+.post-card h3 {
+  margin: 0 0 0.45rem;
+}
+
+.meta-text {
+  margin: 0 0 0.55rem;
+  color: #64748b;
+  font-size: 0.88rem;
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.45rem;
+  margin-top: 0.5rem;
+}
+
+.editor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.editor-form input,
+.editor-form textarea {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 0.65rem 0.75rem;
+  font-size: 1rem;
+}
+
+.editor-form button,
+.edit-btn,
+.delete-btn {
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  padding: 0.55rem 0.75rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.editor-form button,
+.edit-btn {
+  background: #2563eb;
+}
+
+.delete-btn {
+  background: #dc2626;
+}
+
+.switch-mode {
+  margin-top: 0.8rem;
+  border: none;
+  background: transparent;
+  color: #0f766e;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.error-text {
+  margin: 0;
+  color: #b91c1c;
+  background: #fee2e2;
+  border-radius: 8px;
+  padding: 0.55rem 0.65rem;
+}
+
+@media (max-width: 640px) {
+  .nav-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
