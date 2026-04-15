@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel — TechCorp</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="admin.css"/>
+</head>
+<body class="admin-body">
+
+  <!-- Login Screen -->
+  <div id="loginScreen">
+    <div class="login-box">
+      <h2>🔐 Admin Login</h2>
+      <form onsubmit="adminLogin(event)">
+        <input type="text" id="loginUser" placeholder="Username" required/>
+        <input type="password" id="loginPass" placeholder="Password" required/>
+        <button type="submit">Login</button>
+        <p class="login-hint">Default: admin / admin123</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard -->
+  <div id="adminDashboard" class="hidden">
+    <aside class="sidebar">
+      <div class="sidebar-brand">⚙️ Admin Panel</div>
+      <nav>
+        <a href="#" class="active" onclick="showTab('hero')">🏠 Hero Section</a>
+        <a href="#" onclick="showTab('about')">ℹ️ About</a>
+        <a href="#" onclick="showTab('services')">🛠 Services</a>
+        <a href="#" onclick="showTab('footer')">📌 Footer</a>
+      </nav>
+      <button onclick="adminLogout()" class="logout-btn">🚪 Logout</button>
+    </aside>
+
+    <main class="admin-main">
+      <!-- Hero Tab -->
+      <div class="tab-content active" id="tab-hero">
+        <h2>Edit Hero Section</h2>
+        <label>Title</label>
+        <input type="text" id="editHeroTitle"/>
+        <label>Subtitle</label>
+        <textarea id="editHeroSubtitle" rows="3"></textarea>
+        <button onclick="saveHero()">💾 Save</button>
+      </div>
+
+      <!-- About Tab -->
+      <div class="tab-content hidden" id="tab-about">
+        <h2>Edit About Section</h2>
+        <label>About Text</label>
+        <textarea id="editAboutText" rows="5"></textarea>
+        <label>Stat 1 (e.g. 200+)</label>
+        <input type="text" id="editStat1"/>
+        <label>Stat 2</label>
+        <input type="text" id="editStat2"/>
+        <label>Stat 3</label>
+        <input type="text" id="editStat3"/>
+        <button onclick="saveAbout()">💾 Save</button>
+      </div>
+
+      <!-- Services Tab -->
+      <div class="tab-content hidden" id="tab-services">
+        <h2>Manage Services</h2>
+        <div id="servicesList"></div>
+        <hr/>
+        <h3>Add / Edit Service</h3>
+        <input type="hidden" id="editServiceIndex" value="-1"/>
+        <label>Icon (emoji)</label>
+        <input type="text" id="svcIcon" placeholder="e.g. 💻"/>
+        <label>Title</label>
+        <input type="text" id="svcTitle"/>
+        <label>Description</label>
+        <textarea id="svcDesc" rows="3"></textarea>
+        <button onclick="saveService()">💾 Save Service</button>
+      </div>
+
+      <!-- Footer Tab -->
+      <div class="tab-content hidden" id="tab-footer">
+        <h2>Edit Footer</h2>
+        <label>Footer Text</label>
+        <input type="text" id="editFooterText"/>
+        <button onclick="saveFooter()">💾 Save</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daily Planner</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>📅 Daily Planner</h1>
+    <p id="todayLabel"></p>
+  </header>
+
+  <main>
+    <!-- Add Task Form -->
+    <section class="form-section">
+      <h2>Add a Task</h2>
+      <form id="taskForm">
+        <input type="text"  id="taskTitle" placeholder="Task title" required/>
+        <input type="time"  id="taskTime"  required/>
+        <select id="taskPriority">
+          <option value="Low">🟢 Low Priority</option>
+          <option value="Medium" selected>🟡 Medium Priority</option>
+          <option value="High">🔴 High Priority</option>
+        </select>
+        <textarea id="taskNote" placeholder="Notes (optional)" rows="2"></textarea>
+        <button type="submit">➕ Add Task</button>
+      </form>
+    </section>
+
+    <!-- Progress Bar -->
+    <section class="progress-section">
+      <div class="progress-header">
+        <span>Today's Progress</span>
+        <span id="progressLabel">0 / 0 done</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <div class="tabs">
+      <button class="tab active" onclick="setFilter('all', this)">All</button>
+      <button class="tab" onclick="setFilter('pending', this)">Pending</button>
+      <button class="tab" onclick="setFilter('done', this)">Done</button>
+    </div>
+
+    <!-- Task List -->
+    <section id="taskList"></section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TechBlog - Home</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-brand">📝 TechBlog</div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="#" onclick="showCategory('All')">All Posts</a></li>
+      <li><a href="admin.html">Admin</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <h1>Welcome to TechBlog</h1>
+    <p>Insights, tutorials, and stories about technology</p>
+  </header>
+
+  <main>
+    <!-- Search & Filter -->
+    <section class="toolbar">
+      <input type="text" id="searchPosts" placeholder="🔍 Search posts..." oninput="renderPosts()"/>
+      <select id="filterCategory" onchange="renderPosts()">
+        <option value="All">All Categories</option>
+        <option value="Technology">Technology</option>
+        <option value="Programming">Programming</option>
+        <option value="Design">Design</option>
+        <option value="Business">Business</option>
+        <option value="Lifestyle">Lifestyle</option>
+      </select>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section id="postsGrid" class="posts-grid"></section>
+
+    <!-- Single Post View -->
+    <section id="singlePost" class="single-post hidden"></section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 TechBlog. All rights reserved.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

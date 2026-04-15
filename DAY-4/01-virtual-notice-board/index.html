@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Virtual Notice Board</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>📋 Virtual Notice Board</h1>
+    <p>Post and view notices in real time</p>
+  </header>
+
+  <main>
+    <!-- Post a Notice Form -->
+    <section class="form-section">
+      <h2>Post a Notice</h2>
+      <form id="noticeForm">
+        <input type="text" id="author" placeholder="Your Name" required />
+        <input type="text" id="title" placeholder="Notice Title" required />
+        <textarea id="message" placeholder="Write your notice here..." rows="4" required></textarea>
+        <select id="category">
+          <option value="General">General</option>
+          <option value="Urgent">Urgent</option>
+          <option value="Event">Event</option>
+          <option value="Reminder">Reminder</option>
+        </select>
+        <button type="submit">📌 Post Notice</button>
+      </form>
+    </section>
+
+    <!-- Filter Bar -->
+    <section class="filter-section">
+      <label for="filterCategory">Filter by Category:</label>
+      <select id="filterCategory" onchange="renderNotices()">
+        <option value="All">All</option>
+        <option value="General">General</option>
+        <option value="Urgent">Urgent</option>
+        <option value="Event">Event</option>
+        <option value="Reminder">Reminder</option>
+      </select>
+      <button onclick="clearAll()" class="clear-btn">🗑 Clear All</button>
+    </section>
+
+    <!-- Notices Display -->
+    <section class="notices-section" id="noticesContainer">
+      <!-- Notices rendered here by JS -->
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

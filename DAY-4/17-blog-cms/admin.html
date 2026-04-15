@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog Admin - CMS</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="admin.css"/>
+</head>
+<body class="admin-body">
+  <!-- Login -->
+  <div id="loginScreen">
+    <div class="login-box">
+      <h2>🔐 Admin Login</h2>
+      <form onsubmit="login(event)">
+        <input type="password" id="adminPass" placeholder="Password" required/>
+        <button type="submit">Login</button>
+        <p class="hint">Default: admin123</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard -->
+  <div id="adminDashboard" class="hidden">
+    <aside class="sidebar">
+      <div class="sidebar-brand">📝 Blog CMS</div>
+      <nav>
+        <a href="#" class="active" onclick="showTab('posts')">📄 Posts</a>
+        <a href="#" onclick="showTab('new')">➕ New Post</a>
+        <a href="index.html" target="_blank">👁️ View Blog</a>
+      </nav>
+      <button onclick="logout()" class="logout-btn">🚪 Logout</button>
+    </aside>
+
+    <main class="admin-main">
+      <!-- Posts List -->
+      <div class="tab-content active" id="tab-posts">
+        <h2>Manage Posts</h2>
+        <div id="adminPostsList"></div>
+      </div>
+
+      <!-- New/Edit Post -->
+      <div class="tab-content hidden" id="tab-new">
+        <h2 id="formTitle">Create New Post</h2>
+        <form id="postForm">
+          <input type="hidden" id="editId" value=""/>
+          <label>Title</label>
+          <input type="text" id="postTitle" required/>
+          <label>Category</label>
+          <select id="postCategory" required>
+            <option value="Technology">Technology</option>
+            <option value="Programming">Programming</option>
+            <option value="Design">Design</option>
+            <option value="Business">Business</option>
+            <option value="Lifestyle">Lifestyle</option>
+          </select>
+          <label>Excerpt (Short Description)</label>
+          <textarea id="postExcerpt" rows="2" required></textarea>
+          <label>Content</label>
+          <textarea id="postContent" rows="10" required></textarea>
+          <label>Author</label>
+          <input type="text" id="postAuthor" value="Admin" required/>
+          <label>Featured Image URL (optional)</label>
+          <input type="url" id="postImage" placeholder="https://..."/>
+          <div class="form-actions">
+            <button type="submit">💾 Publish Post</button>
+            <button type="button" onclick="cancelEdit()">✕ Cancel</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

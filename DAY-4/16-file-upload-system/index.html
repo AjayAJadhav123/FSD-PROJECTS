@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>File Upload System</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>📁 File Upload System</h1>
+    <p>Upload and manage your files</p>
+  </header>
+
+  <main>
+    <!-- Upload Area -->
+    <section class="upload-section">
+      <div class="drop-zone" id="dropZone">
+        <span class="drop-icon">☁️</span>
+        <p>Drag & drop files here or <label for="fileInput" class="browse-link">browse</label></p>
+        <p class="hint">Max 5MB per file · All file types supported</p>
+        <input type="file" id="fileInput" multiple hidden/>
+      </div>
+      <div id="uploadProgress" class="upload-progress hidden">
+        <div class="progress-bar-bg">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <p id="progressText">Uploading...</p>
+      </div>
+    </section>
+
+    <!-- Storage Info -->
+    <section class="storage-section">
+      <div class="storage-card">
+        <div class="storage-label">Total Files</div>
+        <div class="storage-value" id="totalFiles">0</div>
+      </div>
+      <div class="storage-card">
+        <div class="storage-label">Total Size</div>
+        <div class="storage-value" id="totalSize">0 KB</div>
+      </div>
+      <div class="storage-card">
+        <div class="storage-label">Storage Used</div>
+        <div class="storage-value" id="storagePercent">0%</div>
+      </div>
+    </section>
+
+    <!-- File List -->
+    <section class="files-section">
+      <div class="files-header">
+        <h2>My Files</h2>
+        <div class="filters">
+          <input type="text" id="searchFiles" placeholder="🔍 Search files..." oninput="renderFiles()"/>
+          <select id="sortBy" onchange="renderFiles()">
+            <option value="date">Sort by Date</option>
+            <option value="name">Sort by Name</option>
+            <option value="size">Sort by Size</option>
+          </select>
+          <button onclick="clearAll()" class="clear-btn">🗑 Clear All</button>
+        </div>
+      </div>
+      <div id="filesList"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+/* ===== Reset & Base ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', sans-serif; background: #f0f4f8; color: #333; }
+
+.hidden { display: none !important; }
+
+header {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+header h1 { font-size: 2rem; margin-bottom: 6px; }
+header p  { opacity: 0.85; }
+
+main { max-width: 900px; margin: 30px auto; padding: 0 16px 40px; }
+
+/* ===== Form ===== */
+.form-section {
+  background: white;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  margin-bottom: 30px;
+}
+.form-section h2 { margin-bottom: 16px; color: #555; }
+form { display: flex; flex-direction: column; gap: 12px; }
+input, select {
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border 0.2s;
+}
+input:focus, select:focus { outline: none; border-color: #f5576c; }
+button[type="submit"] {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+button[type="submit"]:hover { opacity: 0.88; }
+
+/* ===== Preview Section ===== */
+.preview-section {
+  background: white;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  margin-bottom: 30px;
+  text-align: center;
+}
+.preview-section h2 { margin-bottom: 20px; color: #555; }
+
+/* ===== Certificate Canvas ===== */
+.certificate-canvas {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 20px;
+  aspect-ratio: 1.414;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+/* Modern Template */
+.cert-modern {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+.cert-modern .cert-title { font-size: 3rem; font-weight: 700; margin-bottom: 20px; letter-spacing: 2px; }
+.cert-modern .cert-subtitle { font-size: 1.2rem; opacity: 0.9; margin-bottom: 30px; }
+.cert-modern .cert-name { font-size: 2.5rem; font-weight: 700; margin: 20px 0; border-bottom: 3px solid white; padding-bottom: 10px; }
+.cert-modern .cert-course { font-size: 1.5rem; margin: 20px 0; }
+.cert-modern .cert-footer { margin-top: 40px; display: flex; justify-content: space-around; width: 100%; font-size: 0.9rem; }
+
+/* Classic Template */
+.cert-classic {
+  background: #fff;
+  border: 20px solid #8b4513;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  color: #333;
+}
+.cert-classic .cert-title { font-size: 3rem; font-weight: 700; color: #8b4513; margin-bottom: 20px; font-family: serif; }
+.cert-classic .cert-subtitle { font-size: 1.1rem; margin-bottom: 30px; font-style: italic; }
+.cert-classic .cert-name { font-size: 2.5rem; font-weight: 700; margin: 20px 0; color: #8b4513; font-family: serif; }
+.cert-classic .cert-course { font-size: 1.4rem; margin: 20px 0; }
+.cert-classic .cert-footer { margin-top: 40px; display: flex; justify-content: space-around; width: 100%; font-size: 0.9rem; }
+
+/* Elegant Template */
+.cert-elegant {
+  background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%);
+  border: 15px solid #212529;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  color: #212529;
+}
+.cert-elegant .cert-title { font-size: 3rem; font-weight: 300; margin-bottom: 20px; letter-spacing: 4px; text-transform: uppercase; }
+.cert-elegant .cert-subtitle { font-size: 1rem; margin-bottom: 30px; letter-spacing: 2px; }
+.cert-elegant .cert-name { font-size: 2.8rem; font-weight: 700; margin: 20px 0; border-top: 2px solid #212529; border-bottom: 2px solid #212529; padding: 15px 0; }
+.cert-elegant .cert-course { font-size: 1.5rem; margin: 20px 0; font-style: italic; }
+.cert-elegant .cert-footer { margin-top: 40px; display: flex; justify-content: space-around; width: 100%; font-size: 0.9rem; }
+
+/* ===== Action Buttons ===== */
+.action-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.download-btn, .reset-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.download-btn {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  color: white;
+}
+.reset-btn { background: #eee; color: #333; }
+.download-btn:hover, .reset-btn:hover { opacity: 0.85; }
+
+/* ===== History ===== */
+.history-section {
+  background: white;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+.history-section h2 { margin-bottom: 16px; color: #555; }
+
+.history-item {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 4px solid #f5576c;
+}
+.history-info { flex: 1; }
+.history-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 3px; }
+.history-meta { font-size: 0.78rem; color: #aaa; }
+.history-actions button {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+.history-actions button:hover { background: #f093fb; color: white; border-color: #f093fb; }
+
+.empty-msg { text-align: center; color: #aaa; padding: 40px; }
+
+@media (max-width: 600px) {
+  header h1 { font-size: 1.5rem; }
+  .cert-modern .cert-title,
+  .cert-classic .cert-title,
+  .cert-elegant .cert-title { font-size: 2rem; }
+  .cert-modern .cert-name,
+  .cert-classic .cert-name,
+  .cert-elegant .cert-name { font-size: 1.8rem; }
+}

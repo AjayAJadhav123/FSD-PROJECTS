@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQ System</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-brand">❓ FAQ System</div>
+    <div class="nav-links">
+      <a href="#" onclick="showView('public')" class="active">FAQs</a>
+      <a href="#" onclick="showView('admin')">Admin</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Public FAQ View -->
+    <div id="publicView">
+      <header class="page-header">
+        <h1>Frequently Asked Questions</h1>
+        <p>Find answers to common questions</p>
+      </header>
+
+      <div class="search-box">
+        <input type="text" id="searchFAQ" placeholder="🔍 Search FAQs..." oninput="renderFAQs()"/>
+        <select id="filterCategory" onchange="renderFAQs()">
+          <option value="All">All Categories</option>
+          <option value="General">General</option>
+          <option value="Account">Account</option>
+          <option value="Billing">Billing</option>
+          <option value="Technical">Technical</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div id="faqList"></div>
+    </div>
+
+    <!-- Admin View -->
+    <div id="adminView" class="hidden">
+      <header class="page-header">
+        <h1>FAQ Management</h1>
+        <p>Add, edit, and manage FAQs</p>
+      </header>
+
+      <section class="form-section">
+        <h2 id="formTitle">Add New FAQ</h2>
+        <form id="faqForm">
+          <input type="hidden" id="editId" value=""/>
+          <input type="text" id="faqQuestion" placeholder="Question" required/>
+          <textarea id="faqAnswer" placeholder="Answer" rows="4" required></textarea>
+          <select id="faqCategory" required>
+            <option value="">Select Category</option>
+            <option value="General">General</option>
+            <option value="Account">Account</option>
+            <option value="Billing">Billing</option>
+            <option value="Technical">Technical</option>
+            <option value="Other">Other</option>
+          </select>
+          <div class="form-actions">
+            <button type="submit" id="submitBtn">➕ Add FAQ</button>
+            <button type="button" id="cancelBtn" onclick="cancelEdit()" style="display:none">✕ Cancel</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="admin-list-section">
+        <h2>Manage FAQs</h2>
+        <div id="adminFAQList"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Address Book</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>📒 Address Book</h1>
+    <p>Manage your contacts easily</p>
+  </header>
+
+  <main>
+    <div class="layout">
+      <!-- Left: Form -->
+      <aside class="form-panel">
+        <h2 id="formTitle">Add Contact</h2>
+        <form id="contactForm">
+          <input type="hidden" id="editId" value=""/>
+          <input type="text"  id="cName"  placeholder="Full Name" required/>
+          <input type="tel"   id="cPhone" placeholder="Phone Number" required/>
+          <input type="email" id="cEmail" placeholder="Email Address"/>
+          <input type="text"  id="cAddr"  placeholder="Address"/>
+          <select id="cGroup">
+            <option value="Personal">Personal</option>
+            <option value="Work">Work</option>
+            <option value="Family">Family</option>
+            <option value="Other">Other</option>
+          </select>
+          <button type="submit" id="submitBtn">➕ Add Contact</button>
+          <button type="button" id="cancelBtn" onclick="cancelEdit()" style="display:none">✕ Cancel</button>
+        </form>
+      </aside>
+
+      <!-- Right: Contact List -->
+      <section class="contacts-panel">
+        <div class="toolbar">
+          <input type="text" id="searchInput" placeholder="🔍 Search contacts..." oninput="renderContacts()"/>
+          <select id="filterGroup" onchange="renderContacts()">
+            <option value="All">All Groups</option>
+            <option value="Personal">Personal</option>
+            <option value="Work">Work</option>
+            <option value="Family">Family</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <p id="contactCount" class="count-label"></p>
+        <div id="contactsList"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- View Modal -->
+  <div id="viewModal" class="modal hidden">
+    <div class="modal-box">
+      <button class="close-btn" onclick="closeModal()">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

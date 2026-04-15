@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Voting Poll Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>🗳️ Voting Poll Dashboard</h1>
+    <p>Create polls and see live results</p>
+  </header>
+
+  <main>
+    <!-- Create Poll Form -->
+    <section class="form-section">
+      <h2>Create a New Poll</h2>
+      <form id="pollForm">
+        <input type="text" id="pollQuestion" placeholder="Enter your question..." required/>
+        <div id="optionsContainer">
+          <input type="text" class="option-input" placeholder="Option 1" required/>
+          <input type="text" class="option-input" placeholder="Option 2" required/>
+        </div>
+        <button type="button" onclick="addOption()">+ Add Option</button>
+        <button type="submit">🚀 Create Poll</button>
+      </form>
+    </section>
+
+    <!-- Active Polls -->
+    <section id="pollsContainer"></section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

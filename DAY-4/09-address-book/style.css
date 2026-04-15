@@ -1,0 +1,161 @@
+/* ===== Reset & Base ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', sans-serif; background: #f0f4f8; color: #333; min-height: 100vh; }
+
+header {
+  background: linear-gradient(135deg, #0575e6, #021b79);
+  color: white;
+  text-align: center;
+  padding: 28px 20px;
+}
+header h1 { font-size: 2rem; margin-bottom: 6px; }
+header p  { opacity: 0.8; }
+
+main { max-width: 1100px; margin: 30px auto; padding: 0 16px 40px; }
+
+/* ===== Layout ===== */
+.layout { display: flex; gap: 24px; align-items: flex-start; }
+
+/* ===== Form Panel ===== */
+.form-panel {
+  width: 300px;
+  flex-shrink: 0;
+  background: white;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  position: sticky;
+  top: 20px;
+}
+.form-panel h2 { margin-bottom: 16px; font-size: 1.05rem; color: #555; }
+form { display: flex; flex-direction: column; gap: 10px; }
+input, select {
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: border 0.2s;
+  font-family: inherit;
+}
+input:focus, select:focus { outline: none; border-color: #0575e6; }
+button[type="submit"] {
+  background: linear-gradient(135deg, #0575e6, #021b79);
+  color: white;
+  border: none;
+  padding: 11px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+button[type="submit"]:hover { opacity: 0.88; }
+button[type="button"] {
+  background: #eee;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* ===== Contacts Panel ===== */
+.contacts-panel { flex: 1; }
+.toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.toolbar input  { flex: 1; min-width: 160px; }
+.toolbar select { min-width: 140px; }
+.count-label { font-size: 0.82rem; color: #aaa; margin-bottom: 14px; }
+
+/* ===== Contact Card ===== */
+.contact-card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  animation: fadeIn 0.3s ease;
+  transition: box-shadow 0.2s;
+}
+.contact-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+
+.avatar {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0575e6, #021b79);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.contact-info { flex: 1; overflow: hidden; }
+.contact-info .name  { font-weight: 600; font-size: 0.95rem; }
+.contact-info .phone { font-size: 0.85rem; color: #555; margin-top: 2px; }
+.contact-info .group-badge {
+  display: inline-block;
+  background: #e8f0fe;
+  color: #0575e6;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  margin-top: 4px;
+}
+.card-actions { display: flex; gap: 6px; }
+.card-actions button {
+  background: none;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  transition: background 0.2s;
+}
+.card-actions .view-btn:hover { background: #e8f0fe; }
+.card-actions .edit-btn:hover { background: #fff3cd; }
+.card-actions .del-btn:hover  { background: #fde8e8; color: #e74c3c; }
+
+.empty-msg { text-align: center; color: #aaa; padding: 40px; }
+
+/* ===== Modal ===== */
+.modal {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100;
+}
+.modal.hidden { display: none; }
+.modal-box {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 380px;
+  width: 90%;
+  position: relative;
+  animation: popIn 0.25s ease;
+}
+.close-btn {
+  position: absolute; top: 14px; right: 14px;
+  background: none; border: none; font-size: 1.1rem; cursor: pointer; color: #aaa;
+}
+.modal-row { display: flex; gap: 10px; margin-bottom: 12px; align-items: flex-start; }
+.modal-row .label { font-weight: 600; min-width: 70px; font-size: 0.88rem; color: #555; }
+.modal-row .value { font-size: 0.9rem; color: #333; }
+.modal-name { font-size: 1.3rem; font-weight: 700; margin-bottom: 18px; color: #021b79; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes popIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 700px) {
+  .layout { flex-direction: column; }
+  .form-panel { width: 100%; position: static; }
+}

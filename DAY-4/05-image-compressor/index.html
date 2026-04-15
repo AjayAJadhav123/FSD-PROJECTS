@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Image Compressor</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>🖼️ Image Compressor</h1>
+    <p>Compress images right in your browser — no upload to server</p>
+  </header>
+
+  <main>
+    <!-- Upload Area -->
+    <section class="upload-section">
+      <div class="drop-zone" id="dropZone">
+        <span class="drop-icon">📁</span>
+        <p>Drag & drop images here or <label for="fileInput" class="browse-link">browse</label></p>
+        <p class="hint">Supports JPG, PNG, WebP</p>
+        <input type="file" id="fileInput" accept="image/*" multiple hidden/>
+      </div>
+
+      <!-- Quality Slider -->
+      <div class="quality-control">
+        <label>Quality: <strong id="qualityValue">75</strong>%</label>
+        <input type="range" id="qualitySlider" min="10" max="100" value="75"/>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section id="resultsSection" class="results-section hidden">
+      <h2>Results</h2>
+      <div id="resultsGrid"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

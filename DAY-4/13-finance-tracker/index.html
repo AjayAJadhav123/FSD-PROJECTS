@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Personal Finance Tracker</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>💰 Personal Finance Tracker</h1>
+    <p>Track your income and expenses</p>
+  </header>
+
+  <main>
+    <!-- Balance Overview -->
+    <section class="balance-section">
+      <div class="balance-card total">
+        <div class="balance-label">Total Balance</div>
+        <div class="balance-value" id="totalBalance">$0.00</div>
+      </div>
+      <div class="balance-card income">
+        <div class="balance-label">Total Income</div>
+        <div class="balance-value" id="totalIncome">$0.00</div>
+      </div>
+      <div class="balance-card expense">
+        <div class="balance-label">Total Expenses</div>
+        <div class="balance-value" id="totalExpense">$0.00</div>
+      </div>
+    </section>
+
+    <!-- Add Transaction Form -->
+    <section class="form-section">
+      <h2>Add Transaction</h2>
+      <form id="transactionForm">
+        <div class="form-row">
+          <input type="text" id="txnDesc" placeholder="Description" required/>
+          <input type="number" id="txnAmount" placeholder="Amount" step="0.01" min="0.01" required/>
+        </div>
+        <div class="form-row">
+          <select id="txnType" required>
+            <option value="">Select Type</option>
+            <option value="Income">Income</option>
+            <option value="Expense">Expense</option>
+          </select>
+          <select id="txnCategory" required>
+            <option value="">Select Category</option>
+            <option value="Salary">Salary</option>
+            <option value="Freelance">Freelance</option>
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Bills">Bills</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Health">Health</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <input type="date" id="txnDate" required/>
+        <button type="submit">➕ Add Transaction</button>
+      </form>
+    </section>
+
+    <!-- Charts -->
+    <section class="charts-section">
+      <div class="chart-box">
+        <h3>Income vs Expenses</h3>
+        <canvas id="incomeExpenseChart"></canvas>
+      </div>
+      <div class="chart-box">
+        <h3>Expenses by Category</h3>
+        <canvas id="categoryChart"></canvas>
+      </div>
+    </section>
+
+    <!-- Transaction History -->
+    <section class="history-section">
+      <div class="history-header">
+        <h2>Transaction History</h2>
+        <div class="filters">
+          <select id="filterType" onchange="renderTransactions()">
+            <option value="All">All Types</option>
+            <option value="Income">Income</option>
+            <option value="Expense">Expense</option>
+          </select>
+          <button onclick="clearAll()" class="clear-btn">🗑 Clear All</button>
+        </div>
+      </div>
+      <div id="transactionList"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

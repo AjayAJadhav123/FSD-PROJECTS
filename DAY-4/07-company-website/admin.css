@@ -1,0 +1,173 @@
+/* ===== Admin Panel Styles ===== */
+.admin-body { background: #f1f5f9; }
+
+/* ===== Login ===== */
+#loginScreen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+}
+.login-box {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+.login-box h2 { text-align: center; margin-bottom: 24px; color: #1e1b4b; }
+.login-box form { display: flex; flex-direction: column; gap: 12px; }
+.login-box input {
+  padding: 11px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+.login-box input:focus { outline: none; border-color: #4f46e5; }
+.login-box button {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.login-hint { text-align: center; font-size: 0.8rem; color: #aaa; margin-top: 4px; }
+
+/* ===== Dashboard Layout ===== */
+#adminDashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: 220px;
+  background: #1e1b4b;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+  position: fixed;
+  top: 0; bottom: 0;
+  overflow-y: auto;
+}
+.sidebar-brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0 20px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 16px;
+}
+.sidebar nav { display: flex; flex-direction: column; flex: 1; }
+.sidebar nav a {
+  display: block;
+  padding: 12px 20px;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s, color 0.2s;
+}
+.sidebar nav a:hover,
+.sidebar nav a.active { background: rgba(255,255,255,0.1); color: white; }
+.logout-btn {
+  margin: 16px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+.logout-btn:hover { background: rgba(255,255,255,0.2); }
+
+/* ===== Main Content ===== */
+.admin-main {
+  margin-left: 220px;
+  flex: 1;
+  padding: 36px;
+  max-width: 800px;
+}
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+
+.tab-content h2 {
+  font-size: 1.4rem;
+  margin-bottom: 22px;
+  color: #1e1b4b;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e2e8f0;
+}
+.tab-content h3 { margin: 20px 0 12px; color: #4f46e5; }
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 5px;
+  margin-top: 14px;
+}
+.tab-content input,
+.tab-content textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: white;
+}
+.tab-content input:focus,
+.tab-content textarea:focus { outline: none; border-color: #4f46e5; }
+
+.tab-content button {
+  margin-top: 18px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  border: none;
+  padding: 11px 24px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.tab-content button:hover { opacity: 0.88; }
+
+hr { border: none; border-top: 1px solid #e2e8f0; margin: 24px 0; }
+
+/* ===== Service List in Admin ===== */
+.admin-service-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+}
+.admin-service-item .svc-icon { font-size: 1.4rem; }
+.admin-service-item .svc-name { flex: 1; font-weight: 600; font-size: 0.9rem; }
+.admin-service-item button {
+  margin-top: 0;
+  padding: 5px 12px;
+  font-size: 0.8rem;
+}
+.admin-service-item .del-btn { background: #e74c3c; margin-left: 6px; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  .sidebar { width: 100%; position: relative; height: auto; }
+  .admin-main { margin-left: 0; padding: 20px; }
+  #adminDashboard { flex-direction: column; }
+}

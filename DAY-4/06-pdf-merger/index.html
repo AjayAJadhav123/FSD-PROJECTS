@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online PDF Merger</title>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- pdf-lib for client-side PDF merging -->
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>📄 PDF Merger</h1>
+    <p>Merge multiple PDFs into one — all in your browser</p>
+  </header>
+
+  <main>
+    <!-- Upload Area -->
+    <section class="upload-section">
+      <div class="drop-zone" id="dropZone">
+        <span class="drop-icon">📂</span>
+        <p>Drag & drop PDF files here or <label for="fileInput" class="browse-link">browse</label></p>
+        <input type="file" id="fileInput" accept=".pdf" multiple hidden/>
+      </div>
+    </section>
+
+    <!-- File List -->
+    <section class="file-list-section" id="fileListSection" style="display:none">
+      <div class="list-header">
+        <h2>Files to Merge <span id="fileCount"></span></h2>
+        <button onclick="clearFiles()" class="clear-btn">✕ Clear All</button>
+      </div>
+      <p class="hint">Drag rows to reorder (order matters for merge)</p>
+      <ul id="fileList"></ul>
+      <button id="mergeBtn" onclick="mergePDFs()">🔗 Merge PDFs</button>
+    </section>
+
+    <!-- Progress & Download -->
+    <section id="progressSection" style="display:none">
+      <div class="progress-bar-bg">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <p id="progressText">Processing...</p>
+    </section>
+
+    <section id="downloadSection" style="display:none">
+      <div class="success-box">
+        <p>✅ Merge complete!</p>
+        <a id="downloadLink" class="download-btn">⬇ Download Merged PDF</a>
+        <button onclick="resetTool()" class="reset-btn">Merge More</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

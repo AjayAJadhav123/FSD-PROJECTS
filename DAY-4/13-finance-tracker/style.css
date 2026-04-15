@@ -1,0 +1,166 @@
+/* ===== Reset & Base ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', sans-serif; background: #f0f4f8; color: #333; }
+
+header {
+  background: linear-gradient(135deg, #11998e, #38ef7d);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+header h1 { font-size: 2rem; margin-bottom: 6px; }
+header p  { opacity: 0.85; }
+
+main { max-width: 1100px; margin: 30px auto; padding: 0 16px 40px; }
+
+/* ===== Balance Cards ===== */
+.balance-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  margin-bottom: 30px;
+}
+.balance-card {
+  background: white;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  text-align: center;
+  border-top: 4px solid #11998e;
+}
+.balance-card.income  { border-top-color: #2ecc71; }
+.balance-card.expense { border-top-color: #e74c3c; }
+.balance-label { font-size: 0.9rem; color: #777; margin-bottom: 8px; }
+.balance-value { font-size: 2rem; font-weight: 700; color: #11998e; }
+.balance-card.income .balance-value  { color: #2ecc71; }
+.balance-card.expense .balance-value { color: #e74c3c; }
+
+/* ===== Form ===== */
+.form-section {
+  background: white;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  margin-bottom: 30px;
+}
+.form-section h2 { margin-bottom: 16px; color: #555; }
+form { display: flex; flex-direction: column; gap: 12px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+input, select {
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border 0.2s;
+}
+input:focus, select:focus { outline: none; border-color: #11998e; }
+button[type="submit"] {
+  background: linear-gradient(135deg, #11998e, #38ef7d);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+button[type="submit"]:hover { opacity: 0.88; }
+
+/* ===== Charts ===== */
+.charts-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+.chart-box {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+.chart-box h3 { font-size: 1rem; margin-bottom: 14px; color: #555; text-align: center; }
+
+/* ===== Transaction History ===== */
+.history-section {
+  background: white;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.history-header h2 { color: #555; }
+.filters { display: flex; gap: 10px; align-items: center; }
+.filters select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+.clear-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: opacity 0.2s;
+}
+.clear-btn:hover { opacity: 0.85; }
+
+/* ===== Transaction Item ===== */
+.txn-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  border-left: 4px solid #11998e;
+  animation: fadeIn 0.3s ease;
+}
+.txn-item.Income  { border-left-color: #2ecc71; }
+.txn-item.Expense { border-left-color: #e74c3c; }
+
+.txn-info { flex: 1; }
+.txn-desc { font-weight: 600; font-size: 0.95rem; margin-bottom: 3px; }
+.txn-meta { font-size: 0.78rem; color: #aaa; }
+.txn-amount {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-right: 12px;
+}
+.txn-item.Income .txn-amount  { color: #2ecc71; }
+.txn-item.Expense .txn-amount { color: #e74c3c; }
+.txn-del {
+  background: none;
+  border: none;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+.txn-del:hover { color: #e74c3c; }
+
+.empty-msg { text-align: center; color: #aaa; padding: 40px; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  header h1 { font-size: 1.5rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .balance-section { grid-template-columns: 1fr; }
+}

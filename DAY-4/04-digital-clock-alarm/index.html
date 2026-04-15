@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digital Clock & Alarm</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>🕐 Digital Clock & Alarm</h1>
+  </header>
+
+  <main>
+    <!-- Live Clock -->
+    <section class="clock-section">
+      <div id="clock">00:00:00</div>
+      <div id="date-display"></div>
+      <div id="ampm"></div>
+    </section>
+
+    <!-- Set Alarm -->
+    <section class="alarm-section">
+      <h2>⏰ Set an Alarm</h2>
+      <form id="alarmForm">
+        <input type="text" id="alarmLabel" placeholder="Alarm label (optional)"/>
+        <input type="time" id="alarmTime" required/>
+        <button type="submit">+ Add Alarm</button>
+      </form>
+    </section>
+
+    <!-- Alarm List -->
+    <section class="alarm-list-section">
+      <h2>Your Alarms</h2>
+      <div id="alarmList"></div>
+    </section>
+  </main>
+
+  <!-- Alarm Notification -->
+  <div id="alarmModal" class="modal hidden">
+    <div class="modal-box">
+      <h2>⏰ Alarm!</h2>
+      <p id="modalLabel"></p>
+      <button onclick="dismissAlarm()">Dismiss</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

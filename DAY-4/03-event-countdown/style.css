@@ -1,0 +1,141 @@
+/* ===== Reset & Base ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f0c29;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  min-height: 100vh;
+  color: white;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+header h1 { font-size: 2.2rem; margin-bottom: 8px; }
+header p  { opacity: 0.7; }
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+/* ===== Form ===== */
+.form-section {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.form-section h2 { margin-bottom: 16px; font-size: 1.1rem; opacity: 0.9; }
+
+form { display: flex; flex-direction: column; gap: 12px; }
+
+input {
+  padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  font-size: 0.95rem;
+}
+input::placeholder { color: rgba(255,255,255,0.5); }
+input:focus { outline: none; border-color: #a78bfa; }
+input[type="datetime-local"]::-webkit-calendar-picker-indicator { filter: invert(1); }
+
+button[type="submit"] {
+  background: linear-gradient(135deg, #a78bfa, #7c3aed);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+}
+button[type="submit"]:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* ===== Event Card ===== */
+.event-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 18px;
+  animation: fadeIn 0.4s ease;
+  position: relative;
+}
+.event-card.expired { opacity: 0.5; }
+
+.event-card h3 { font-size: 1.15rem; margin-bottom: 4px; }
+.event-card .desc { font-size: 0.85rem; opacity: 0.6; margin-bottom: 16px; }
+
+/* ===== Countdown Boxes ===== */
+.countdown {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.time-box {
+  background: rgba(167,139,250,0.2);
+  border: 1px solid rgba(167,139,250,0.4);
+  border-radius: 10px;
+  padding: 12px 16px;
+  text-align: center;
+  min-width: 70px;
+}
+.time-box .num {
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: block;
+  line-height: 1;
+}
+.time-box .label {
+  font-size: 0.7rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.event-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+.delete-btn {
+  background: none;
+  border: none;
+  color: #f87171;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.expired-label {
+  color: #f87171;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.empty-msg {
+  text-align: center;
+  opacity: 0.5;
+  padding: 40px;
+  font-size: 1.1rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 500px) {
+  .time-box { min-width: 55px; padding: 10px 12px; }
+  .time-box .num { font-size: 1.4rem; }
+}

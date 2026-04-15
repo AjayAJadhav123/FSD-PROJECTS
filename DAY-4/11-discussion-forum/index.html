@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Discussion Forum</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>💬 Discussion Forum</h1>
+    <p>Post topics and join the conversation</p>
+  </header>
+
+  <main id="app">
+    <!-- Topic List View (default) -->
+    <div id="topicListView">
+      <div class="toolbar">
+        <button class="new-topic-btn" onclick="showNewTopicForm()">✏️ New Topic</button>
+        <input type="text" id="searchTopics" placeholder="🔍 Search topics..." oninput="renderTopics()"/>
+        <select id="filterTopicCat" onchange="renderTopics()">
+          <option value="All">All Categories</option>
+          <option value="General">General</option>
+          <option value="Tech">Tech</option>
+          <option value="Science">Science</option>
+          <option value="Sports">Sports</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div id="topicsList"></div>
+    </div>
+
+    <!-- New Topic Form -->
+    <div id="newTopicView" class="hidden">
+      <button class="back-btn" onclick="showTopicList()">← Back</button>
+      <div class="form-section">
+        <h2>Start a New Topic</h2>
+        <form id="topicForm">
+          <input type="text" id="topicAuthor" placeholder="Your Name" required/>
+          <input type="text" id="topicTitle"  placeholder="Topic Title" required/>
+          <select id="topicCategory">
+            <option value="General">General</option>
+            <option value="Tech">Tech</option>
+            <option value="Science">Science</option>
+            <option value="Sports">Sports</option>
+            <option value="Other">Other</option>
+          </select>
+          <textarea id="topicBody" placeholder="Write your post..." rows="5" required></textarea>
+          <button type="submit">🚀 Post Topic</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Topic Detail View -->
+    <div id="topicDetailView" class="hidden">
+      <button class="back-btn" onclick="showTopicList()">← Back to Topics</button>
+      <div id="topicDetail"></div>
+
+      <!-- Reply Form -->
+      <div class="form-section reply-form">
+        <h3>Leave a Reply</h3>
+        <form id="replyForm">
+          <input type="text" id="replyAuthor" placeholder="Your Name" required/>
+          <textarea id="replyBody" placeholder="Write your reply..." rows="3" required></textarea>
+          <button type="submit">💬 Post Reply</button>
+        </form>
+      </div>
+
+      <div id="repliesList"></div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

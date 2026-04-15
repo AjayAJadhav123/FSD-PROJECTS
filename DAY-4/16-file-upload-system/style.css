@@ -1,0 +1,175 @@
+/* ===== Reset & Base ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', sans-serif; background: #f0f4f8; color: #333; }
+
+.hidden { display: none !important; }
+
+header {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+header h1 { font-size: 2rem; margin-bottom: 6px; }
+header p  { opacity: 0.85; }
+
+main { max-width: 1000px; margin: 30px auto; padding: 0 16px 40px; }
+
+/* ===== Upload Section ===== */
+.upload-section {
+  background: white;
+  border-radius: 14px;
+  padding: 30px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  margin-bottom: 24px;
+}
+.drop-zone {
+  border: 2px dashed #4facfe;
+  border-radius: 12px;
+  padding: 50px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.drop-zone.dragover { background: #e3f2fd; border-color: #00f2fe; }
+.drop-icon { font-size: 3rem; display: block; margin-bottom: 12px; }
+.browse-link {
+  color: #4facfe;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 600;
+}
+.hint { font-size: 0.82rem; color: #aaa; margin-top: 6px; }
+
+.upload-progress { margin-top: 20px; text-align: center; }
+.progress-bar-bg {
+  background: #eee;
+  border-radius: 20px;
+  height: 12px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  border-radius: 20px;
+  transition: width 0.3s ease;
+  width: 0%;
+}
+#progressText { font-size: 0.9rem; color: #666; }
+
+/* ===== Storage Cards ===== */
+.storage-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.storage-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  text-align: center;
+  border-top: 4px solid #4facfe;
+}
+.storage-label { font-size: 0.85rem; color: #777; margin-bottom: 8px; }
+.storage-value { font-size: 1.8rem; font-weight: 700; color: #4facfe; }
+
+/* ===== Files Section ===== */
+.files-section {
+  background: white;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+.files-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.files-header h2 { color: #555; }
+.filters { display: flex; gap: 10px; flex-wrap: wrap; }
+.filters input, .filters select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+.clear-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: opacity 0.2s;
+}
+.clear-btn:hover { opacity: 0.85; }
+
+/* ===== File Item ===== */
+.file-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  border-left: 4px solid #4facfe;
+  animation: fadeIn 0.3s ease;
+  transition: box-shadow 0.2s;
+}
+.file-item:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+
+.file-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  background: #e3f2fd;
+}
+.file-info { flex: 1; min-width: 0; }
+.file-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 3px;
+}
+.file-meta { font-size: 0.78rem; color: #aaa; }
+.file-actions { display: flex; gap: 6px; }
+.file-actions button {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+.file-actions .download-btn:hover { background: #4facfe; color: white; border-color: #4facfe; }
+.file-actions .del-btn:hover { background: #e74c3c; color: white; border-color: #e74c3c; }
+
+.empty-msg { text-align: center; color: #aaa; padding: 40px; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  header h1 { font-size: 1.5rem; }
+  .drop-zone { padding: 30px 16px; }
+  .files-header { flex-direction: column; align-items: flex-start; }
+  .filters { width: 100%; flex-direction: column; }
+}

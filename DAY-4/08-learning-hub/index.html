@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learning Resource Hub</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>📚 Learning Resource Hub</h1>
+    <p>Upload and browse study materials</p>
+  </header>
+
+  <main>
+    <!-- Upload Form -->
+    <section class="form-section">
+      <h2>Upload a Resource</h2>
+      <form id="uploadForm">
+        <input type="text" id="resTitle" placeholder="Resource Title" required/>
+        <input type="text" id="resAuthor" placeholder="Author / Uploader" required/>
+        <select id="resCategory">
+          <option value="Math">Math</option>
+          <option value="Science">Science</option>
+          <option value="Programming">Programming</option>
+          <option value="History">History</option>
+          <option value="Language">Language</option>
+          <option value="Other">Other</option>
+        </select>
+        <input type="url" id="resLink" placeholder="Resource URL (link to PDF, video, etc.)" required/>
+        <textarea id="resDesc" placeholder="Short description..." rows="3"></textarea>
+        <button type="submit">📤 Upload Resource</button>
+      </form>
+    </section>
+
+    <!-- Search & Filter -->
+    <div class="toolbar">
+      <input type="text" id="searchInput" placeholder="🔍 Search resources..." oninput="renderResources()"/>
+      <select id="filterCat" onchange="renderResources()">
+        <option value="All">All Categories</option>
+        <option value="Math">Math</option>
+        <option value="Science">Science</option>
+        <option value="Programming">Programming</option>
+        <option value="History">History</option>
+        <option value="Language">Language</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <!-- Resources Grid -->
+    <section id="resourcesGrid"></section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

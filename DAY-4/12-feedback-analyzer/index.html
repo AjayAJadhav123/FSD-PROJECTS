@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feedback Analyzer</title>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- Chart.js for visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>📊 Feedback Analyzer</h1>
+    <p>Collect and analyze customer feedback</p>
+  </header>
+
+  <main>
+    <!-- Submit Feedback Form -->
+    <section class="form-section">
+      <h2>Submit Your Feedback</h2>
+      <form id="feedbackForm">
+        <input type="text" id="userName" placeholder="Your Name" required/>
+        <input type="email" id="userEmail" placeholder="Your Email" required/>
+        <select id="feedbackType">
+          <option value="">Select Feedback Type</option>
+          <option value="Product">Product</option>
+          <option value="Service">Service</option>
+          <option value="Support">Support</option>
+          <option value="Website">Website</option>
+          <option value="Other">Other</option>
+        </select>
+        <textarea id="feedbackText" placeholder="Write your feedback here..." rows="4" required></textarea>
+        <div class="rating-row">
+          <label>Rating:</label>
+          <div class="stars" id="starRating">
+            <span class="star" data-value="1">★</span>
+            <span class="star" data-value="2">★</span>
+            <span class="star" data-value="3">★</span>
+            <span class="star" data-value="4">★</span>
+            <span class="star" data-value="5">★</span>
+          </div>
+          <input type="hidden" id="rating" value="0"/>
+        </div>
+        <button type="submit">📤 Submit Feedback</button>
+      </form>
+    </section>
+
+    <!-- Analytics Dashboard -->
+    <section class="analytics-section">
+      <h2>Feedback Analytics</h2>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value" id="totalCount">0</div>
+          <div class="stat-label">Total Feedback</div>
+        </div>
+        <div class="stat-card positive">
+          <div class="stat-value" id="positiveCount">0</div>
+          <div class="stat-label">Positive</div>
+        </div>
+        <div class="stat-card neutral">
+          <div class="stat-value" id="neutralCount">0</div>
+          <div class="stat-label">Neutral</div>
+        </div>
+        <div class="stat-card negative">
+          <div class="stat-value" id="negativeCount">0</div>
+          <div class="stat-label">Negative</div>
+        </div>
+      </div>
+
+      <div class="charts-row">
+        <div class="chart-box">
+          <h3>Sentiment Distribution</h3>
+          <canvas id="sentimentChart"></canvas>
+        </div>
+        <div class="chart-box">
+          <h3>Feedback by Type</h3>
+          <canvas id="typeChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feedback List -->
+    <section class="feedback-list-section">
+      <div class="list-header">
+        <h2>Recent Feedback</h2>
+        <select id="filterSentiment" onchange="renderFeedback()">
+          <option value="All">All Sentiments</option>
+          <option value="Positive">Positive</option>
+          <option value="Neutral">Neutral</option>
+          <option value="Negative">Negative</option>
+        </select>
+      </div>
+      <div id="feedbackList"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
